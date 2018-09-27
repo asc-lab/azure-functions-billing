@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintInvoiceFunc", "PrintIn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceDbInitializator", "PriceDbInitializator\PriceDbInitializator.csproj", "{1362E9E2-7D86-4220-81B4-07F070E0E7FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1362E9E2-7D86-4220-81B4-07F070E0E7FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1362E9E2-7D86-4220-81B4-07F070E0E7FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1362E9E2-7D86-4220-81B4-07F070E0E7FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1362E9E2-7D86-4220-81B4-07F070E0E7FF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
