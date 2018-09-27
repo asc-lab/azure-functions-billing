@@ -15,12 +15,11 @@ namespace BillingFunctions
             {
                 if (String.IsNullOrWhiteSpace(line))
                     continue;
-                //Beneficiary from line
+                
                 var benex = Beneficiary.FromCsvLine(line);
-                //price line
                 var price = priceList.GetPrice(benex, billingDate);
-                //build billing item
-                var bi = new BillingItem
+
+                billingItems.Add(new BillingItem
                 {
                     PartitionKey = $"{activeList.CustomerCode}-{activeList.Year}-{activeList.Month}",
                     RowKey = Guid.NewGuid().ToString(),
@@ -28,8 +27,7 @@ namespace BillingFunctions
                     Beneficiary = $"{benex.NationalId} {benex.Name}",
                     ProductCode = benex.ProductCode,
                     Amount = Convert.ToDouble(price)
-                };
-                billingItems.Add(bi);
+                });
             }
 
             return billingItems;

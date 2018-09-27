@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BillingFunctions
 {
@@ -27,7 +23,7 @@ namespace BillingFunctions
         public static Beneficiary FromCsvLine(string csvLine)
         {
             string[] parts = csvLine.Split(new char[] {';'});
-            return new Beneficiary(parts[0],parts[1],parts[2]);
+            return new Beneficiary(parts[0], parts[1], parts[2]);
         }
     }
 

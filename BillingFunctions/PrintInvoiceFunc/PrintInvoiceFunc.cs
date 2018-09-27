@@ -15,14 +15,13 @@ namespace BillingFunctions
         {
             var pdf = new InvoicePrinter().Print(printRequest.InvoiceToPrint);
 
-            //store result in blob
-            WriteOutBlobAsync(
+            StoreResultInBlobAsync(
                 binder,
                 $"Invoice_{printRequest.InvoiceToPrint.InvoiceNumber.Replace("/","_")}",
                 pdf);
         }
 
-        private static async Task WriteOutBlobAsync(Binder binder, string title, byte[] doc)
+        private static async Task StoreResultInBlobAsync(Binder binder, string title, byte[] doc)
         {
             using (var stream = await binder.BindAsync<Stream>(new BlobAttribute($"printouts/{title}.pdf", FileAccess.Write)))
             {
