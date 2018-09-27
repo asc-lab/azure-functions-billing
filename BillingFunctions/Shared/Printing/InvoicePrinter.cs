@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DinkToPdf;
+using System;
 using System.Text;
 
 namespace BillingFunctions
@@ -25,8 +26,24 @@ namespace BillingFunctions
 
         public byte[] Print(Invoice invoice)
         {
-            var content = BuildContent(invoice);
-            var pdf = new NReco.PdfGenerator.HtmlToPdfConverter().GeneratePdf(content);
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                    ColorMode = ColorMode.Color,
+                    Orientation = Orientation.Landscape,
+                    PaperSize = PaperKind.A4Plus,
+                },
+                Objects = {
+                    new ObjectSettings() {
+                        PagesCount = true,
+                        HtmlContent = BuildContent(invoice),
+                        WebSettings = { DefaultEncoding = "utf-8" },
+                        HeaderSettings = { FontSize = 9, Right = "Page [page] of [toPage]", Line = true, Spacing = 2.812 }
+                    }
+                }
+            };
+            var converter = new SynchronizedConverter(new PdfTools());
+            var pdf = converter.Convert(doc);
             return pdf;
         }
 
