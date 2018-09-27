@@ -1,4 +1,4 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace BillingFunctions
 {
@@ -6,12 +6,10 @@ namespace BillingFunctions
     {
         public Invoice Generate(
             InvoiceGenerationRequest request,
-            IQueryable<BillingItem> billingItems)
+            List<BillingItem> billingItems)
         {
             var i = Invoice.Create(request.CustomerCode, request.Year, request.Month);
-            i.BillItems(billingItems
-                .Where(bi => bi.PartitionKey == $"{request.CustomerCode}-{request.Year}-{request.Month}")
-                .ToList());
+            i.BillItems(billingItems);
             return i;
         }
     }
