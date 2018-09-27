@@ -1,20 +1,25 @@
 ﻿using Microsoft.WindowsAzure.Storage.Blob;
 using System;
+using System.IO;
 
 namespace BillingFunctions
 {
     public static class ActiveListParser
     {
-        public static ActiveList Parse(CloudBlockBlob myBlob)
+        public static ActiveList Parse(string name, Stream myBlob)
         {
-            var parts = myBlob.Name.Split(new char[] { '_' });
-            return new ActiveList
+            using (StreamReader sr = new StreamReader(myBlob))
             {
-                CustomerCode = parts[0],
-                Year = int.Parse(parts[1]),
-                Month = int.Parse(parts[2]),
-                DataLines = myBlob.DownloadTextAsync().Result.Split(Environment.NewLine.ToCharArray()) //FIXME async!
-            };
+                var dataLines = sr.ReadToEnd();
+                var parts = name.Split(new char[] { '_' });
+                return new ActiveList
+                {
+                    CustomerCode = parts[0],
+                    Year = int.Parse(parts[1]),
+                    Month = int.Parse(parts[2]),
+                    DataLines = dataLines.Split(Environment.NewLine.ToCharArray()) //FIXME async!
+                };
+            }
         }
     }
 
