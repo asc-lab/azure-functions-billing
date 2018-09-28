@@ -11,9 +11,14 @@ Serverless in Insurance world.
 1. Blob Container ```active-lists```.
 2. Upload file ```ASC_2018_02_activeLists.txt``` to ```active-lists``` blob.
 3. Install [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator).
-4. Create in CosmosDB database ```crm``` and collection ```prices```.
-5. Run project ```PriceDbInitializator```.
+4. Create in CosmosDB database ```crm``` and collection ```prices``` and ```invoices```.
+5. Run project ```PriceDbInitializator``` to init table with prices.
 
 ## Run locally
 
 1. Run [Microsoft Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
+
+## JsReport
+```
+docker run -p 80:5488 jsreport/jsreport
+```
