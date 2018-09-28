@@ -18,7 +18,14 @@ Serverless in Insurance world.
 
 1. Run [Microsoft Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
 
-## JsReport
-```
+## PDF Generation
+
+### JsReport
+
+```bash
 docker run -p 80:5488 jsreport/jsreport
 ```
+
+### DinkToPdf
+
+Instruction [here](https://odetocode.com/blogs/scott/archive/2018/02/14/pdf-generation-in-azure-functions-v2.aspx).
