@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Shared.Pricing;
+using System;
 using System.Collections.Generic;
 
-namespace BillingFunctions
+namespace Shared.Billing
 {
     public class BillingItemGenerator
     {

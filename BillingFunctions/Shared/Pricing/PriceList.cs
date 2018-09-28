@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Shared.Billing;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BillingFunctions
+namespace Shared.Pricing
 {
     class PriceList
     {

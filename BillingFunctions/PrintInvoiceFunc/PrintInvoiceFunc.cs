@@ -2,6 +2,7 @@ using Microsoft.Azure.WebJobs;
 using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Shared.Printing;
 
 namespace BillingFunctions
 {
@@ -13,7 +14,7 @@ namespace BillingFunctions
             Binder binder,
             ILogger log)
         {
-            var pdf = new InvoicePrinter().Print(printRequest.InvoiceToPrint);
+            var pdf = new JsReportInvoicePrinter().Print(printRequest.InvoiceToPrint);
 
             StoreResultInBlobAsync(
                 binder,

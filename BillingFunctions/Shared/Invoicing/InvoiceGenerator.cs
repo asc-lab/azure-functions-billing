@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using Shared.Billing;
+using System.Collections.Generic;
 
-namespace BillingFunctions
+namespace Shared.Invoicing
 {
     public class InvoiceGenerator
     {

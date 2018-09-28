@@ -1,5 +1,7 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
+using Shared.Billing;
+using Shared.Invoicing;
 using System.IO;
 
 namespace BillingFunctions

@@ -1,4 +1,4 @@
-﻿namespace BillingFunctions
+﻿namespace Shared.Billing
 {
     public enum Gender
     {

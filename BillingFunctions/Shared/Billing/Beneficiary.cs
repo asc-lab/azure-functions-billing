@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BillingFunctions
+namespace Shared.Billing
 {
     public class Beneficiary
     {

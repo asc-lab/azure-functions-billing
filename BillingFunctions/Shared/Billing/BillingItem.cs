@@ -1,6 +1,6 @@
 ﻿using Microsoft.WindowsAzure.Storage.Table;
 
-namespace BillingFunctions
+namespace Shared.Billing
 {
     public class BillingItem : TableEntity
     {

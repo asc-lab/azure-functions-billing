@@ -1,8 +1,7 @@
-﻿using Microsoft.WindowsAzure.Storage.Blob;
-using System;
+﻿using System;
 using System.IO;
 
-namespace BillingFunctions
+namespace Shared.Billing
 {
     public static class ActiveListParser
     {

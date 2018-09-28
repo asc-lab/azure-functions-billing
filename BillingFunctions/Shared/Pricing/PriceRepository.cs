@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace BillingFunctions
+namespace Shared.Pricing
 {
     class PriceRepository
     {

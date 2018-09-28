@@ -1,4 +1,6 @@
-﻿namespace BillingFunctions
+﻿using Shared.Billing;
+
+namespace Shared.Invoicing
 {
     public class InvoiceGenerationRequest
     {

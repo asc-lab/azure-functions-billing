@@ -1,5 +1,6 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
+using Shared.Printing;
 using Twilio.Rest.Api.V2010.Account;
 using Twilio.Types;
 

@@ -1,9 +1,10 @@
 using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Microsoft.WindowsAzure.Storage.Table;
+using Shared.Billing;
+using Shared.Invoicing;
+using Shared.Printing;
 using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace BillingFunctions
 {
