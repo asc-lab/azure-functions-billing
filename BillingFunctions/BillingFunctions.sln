@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotifyInvoiceFunc", "NotifyInvoiceFunc\NotifyInvoiceFunc.csproj", "{C936C1AC-5432-4F77-9F64-CB7BB0835613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NotifyInvoiceFunc", "NotifyInvoiceFunc\NotifyInvoiceFunc.csproj", "{C936C1AC-5432-4F77-9F64-CB7BB0835613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateBillingItemFunc", "GenerateBillingItemFunc\GenerateBillingItemFunc.csproj", "{CED4E557-31FD-4364-8FAC-43D302767A76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateBillingItemsFunc", "GenerateBillingItemFunc\GenerateBillingItemsFunc.csproj", "{CED4E557-31FD-4364-8FAC-43D302767A76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateInvoiceFunc", "GenerateInvoiceFunc\GenerateInvoiceFunc.csproj", "{329DA314-1DEF-4864-9954-C998A4949A71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GenerateInvoiceFunc", "GenerateInvoiceFunc\GenerateInvoiceFunc.csproj", "{329DA314-1DEF-4864-9954-C998A4949A71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintInvoiceFunc", "PrintInvoiceFunc\PrintInvoiceFunc.csproj", "{BA2997A7-F82A-4FA4-A194-E6A270250EB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrintInvoiceFunc", "PrintInvoiceFunc\PrintInvoiceFunc.csproj", "{BA2997A7-F82A-4FA4-A194-E6A270250EB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shared", "Shared\Shared.csproj", "{FA5F8473-6833-4CAE-8E9E-326F13D1C87A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PriceDbInitializator", "PriceDbInitializator\PriceDbInitializator.csproj", "{1362E9E2-7D86-4220-81B4-07F070E0E7FF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PriceDbInitializator", "PriceDbInitializator\PriceDbInitializator.csproj", "{1362E9E2-7D86-4220-81B4-07F070E0E7FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
