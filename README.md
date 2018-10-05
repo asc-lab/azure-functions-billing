@@ -6,7 +6,7 @@ This example shows how you can use the serverless architecture in insurance bill
     <img alt="Architecture" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/azure-functions-architecture.png" />
 </p>
 
-1. User uploads CSV file with Beneficiaries (the sample file is located in the ```data-examples``` folder) to a specific data storage - ```active-lists``` Azure Blob Container.
+1. User uploads CSV file (with name structure ```CLIENTCODE_YEAR_MONTH_activeList.txt.```) with Beneficiaries (the sample file is located in the ```data-examples``` folder) to a specific data storage - ```active-lists``` Azure Blob Container.
 2. The above action triggers a function (```GenerateBillingItemsFunc```) that is responsible for:
     * generating billing items (using prices from an external database - CosmosDB ```crm``` database, ```prices``` collection) and saving them in the table ```billingItems```;
     * sending message about the need to create a new invoice to ```invoice-generation-request```;
@@ -57,7 +57,7 @@ This example shows how you can use the serverless architecture in insurance bill
 </table>
 ```
 
-Example JSON:
+Example JSON for INVOICE template:
 
 ```json
 {
@@ -77,3 +77,13 @@ Example JSON:
   "totalCost": 3500.0
 }
 ```
+
+9. 
+
+## Tips & Tricks
+
+1. CSV file is working for client code ```ASC``` (filename: ```ASC_2018_12_activeList.txt```). If you want run functions for another client code, you must simulate prices in database. Check project ```PriceDbInitializator```, file ```Program.cs```, method ```AddDoc```.
+2. Remember that you must use **Twilio Test Credentials**! Screen:
+<p align="center">
+    <img alt="Architecture" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/twilio_test_credentials.png" />
+</p>

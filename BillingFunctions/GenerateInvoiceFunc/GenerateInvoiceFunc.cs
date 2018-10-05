@@ -16,7 +16,7 @@ namespace BillingFunctions
             [Table("billingItems")] CloudTable billingItems,
             [CosmosDB("crm", "invoices", ConnectionStringSetting = "cosmosDb")] out dynamic generatedInvoice,
             [Queue("invoice-print-request")] out InvoicePrintRequest printRequest,
-            [Queue("invoice-notification-request")] out InvoiceNotificationRequest smsRequest,
+            [Queue("invoice-notification-request")] out InvoiceNotificationRequest notificationRequest,
             ILogger log)
         {
             log.LogInformation($"C# Queue trigger function processed: {request.CustomerCode} {request.Year} {request.Month}");
@@ -28,7 +28,7 @@ namespace BillingFunctions
             generatedInvoice = invoice;
             
             printRequest = new InvoicePrintRequest { InvoiceToPrint = invoice };
-            smsRequest = new InvoiceNotificationRequest { InvoiceToSms = invoice };
+            notificationRequest = new InvoiceNotificationRequest { InvoiceForNotification = invoice };
         }
 
         static List<BillingItem> GetBillingItemsFromTable(CloudTable billingItems, InvoiceGenerationRequest request)
