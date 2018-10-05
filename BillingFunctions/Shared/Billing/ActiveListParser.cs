@@ -16,7 +16,7 @@ namespace Shared.Billing
                     CustomerCode = parts[0],
                     Year = int.Parse(parts[1]),
                     Month = int.Parse(parts[2]),
-                    DataLines = dataLines.Split(Environment.NewLine.ToCharArray()) //FIXME async!
+                    DataLines = dataLines.Split(Environment.NewLine.ToCharArray())
                 };
             }
         }

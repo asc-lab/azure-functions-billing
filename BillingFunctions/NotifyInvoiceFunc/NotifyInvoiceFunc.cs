@@ -11,7 +11,7 @@ namespace BillingFunctions
         [FunctionName("NotifyInvoiceFunc")]
         [return: TwilioSms(AccountSidSetting = "smsAccount", AuthTokenSetting = "smsSecToken", From = "+15005550006")]
         public static CreateMessageOptions Run(
-            [QueueTrigger("invoice-sms-request")]InvoiceSmsRequest smsRequest,
+            [QueueTrigger("invoice-sms-request")]InvoiceNotificationRequest smsRequest,
             ILogger log)
         {
             log.LogInformation($"C# Queue trigger function processed: {smsRequest}");

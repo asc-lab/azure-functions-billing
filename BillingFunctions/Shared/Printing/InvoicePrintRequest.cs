@@ -7,7 +7,7 @@ namespace Shared.Printing
         public Invoice InvoiceToPrint { get; set; }
     }
 
-    public class InvoiceSmsRequest
+    public class InvoiceNotificationRequest
     {
         public Invoice InvoiceToSms { get; set; }
     }
