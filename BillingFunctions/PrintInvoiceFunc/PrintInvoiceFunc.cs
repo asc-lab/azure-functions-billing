@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using Shared.Printing;
+using System;
 
 namespace BillingFunctions
 {
@@ -14,7 +15,8 @@ namespace BillingFunctions
             Binder binder,
             ILogger log)
         {
-            var pdf = new JsReportInvoicePrinter().Print(printRequest.InvoiceToPrint);
+            var jsReportUrl = Environment.GetEnvironmentVariable("JsReportUrl");
+            var pdf = new JsReportInvoicePrinter(jsReportUrl).Print(printRequest.InvoiceToPrint);
 
             StoreResultInBlobAsync(
                 binder,
