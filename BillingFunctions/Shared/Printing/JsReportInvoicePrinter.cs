@@ -5,17 +5,18 @@ using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Text;
 using Newtonsoft.Json.Serialization;
+using System;
 
 namespace Shared.Printing
 {
     public class JsReportInvoicePrinter : IInvoicePrinter
     {
         private static readonly string INVOICE_TEMPLATE_NAME = "INVOICE";
-        private string jsReportUrl;
+        private readonly string JsReportUrl;
 
         public JsReportInvoicePrinter(string jsReportUrl)
         {
-            this.jsReportUrl = jsReportUrl;
+            JsReportUrl = jsReportUrl;
         }
 
         public byte[] Print(Invoice invoice)
@@ -34,12 +35,13 @@ namespace Shared.Printing
         {
             using (HttpClient client = new HttpClient())
             {
+                client.BaseAddress = new Uri(JsReportUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 var json = new JsonContent(request);
                 
-                var response = client.PostAsync(jsReportUrl, json).Result;
+                var response = client.PostAsync("/api/report", json).Result;
                 var bytes = response.Content.ReadAsByteArrayAsync().Result;
 
                 return bytes;
