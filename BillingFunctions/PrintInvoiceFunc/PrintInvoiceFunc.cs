@@ -16,7 +16,7 @@ namespace BillingFunctions
             ILogger log)
         {
             var jsReportUrl = Environment.GetEnvironmentVariable("JsReportUrl");
-            var pdf = new JsReportInvoicePrinter(jsReportUrl).Print(printRequest.InvoiceToPrint);
+            var pdf = new InvoicePrinter(jsReportUrl).Print(printRequest.InvoiceToPrint);
 
             StoreResultInBlobAsync(
                 binder,

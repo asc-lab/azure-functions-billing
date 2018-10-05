@@ -9,12 +9,12 @@ using System;
 
 namespace Shared.Printing
 {
-    public class JsReportInvoicePrinter : IInvoicePrinter
+    public class InvoicePrinter
     {
         private static readonly string INVOICE_TEMPLATE_NAME = "INVOICE";
         private readonly string JsReportUrl;
 
-        public JsReportInvoicePrinter(string jsReportUrl)
+        public InvoicePrinter(string jsReportUrl)
         {
             JsReportUrl = jsReportUrl;
         }
