@@ -23,13 +23,13 @@ This example shows how you can use the serverless architecture in insurance bill
 4. Upload  ```ASC_2018_02_activeLists.txt``` file from ```data-examples``` folder to ```active-lists``` blob.
 5. Create CosmosDB database ```crm``` and collections: ```prices```,  ```invoices```.
 6. Run project ```PriceDbInitializator``` to init collection with prices.
-7. Run JsReport ```docker run -p 5488:5488 jsreport/jsreport```.
+7. Run JsReport ```docker run -p 5488:5488 jsreport/jsreport```. Check JsReport Studio on ```localhost:5488```.
 8. Add JsReport url as ```JsReportUrl``` to ```local.settings.json``` in ```PrintInvoiceFunc``` project.
 9. Create an account in [Twilio](https://www.twilio.com/) and add properties ```TwilioAccountSid``` ```TwilioAuthToken``` to ```local.settings.json```
 10. Create an account in [SendGrid](https://sendgrid.com/) and add property ```SendGridApiKey``` to ```local.settings.json``` in ```NotifyInvoiceFunc``` project.
 11. Add CosmosDB properties ```PriceDbUrl``` and ```PriceDbAuthKey``` to ```local.appsettings.json``` in ```PriceDbInitializator```.
 12. Add CosmosDB connection string as ```cosmosDb``` to ```local.settings.json``` in ```GenerateInvoiceFunc``` project.
-13. Add to JsReport template with name ```INVOICE``` and content:
+13. Add JsReport template with name ```INVOICE``` and content:
 
 ```html
 <h1>Invoice {{invoiceNumber }}</h1>
