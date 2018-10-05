@@ -3,7 +3,6 @@ using System;
 using Microsoft.Extensions.Configuration;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 
 namespace PriceDbInitializator
 {
@@ -20,8 +19,8 @@ namespace PriceDbInitializator
             Configuration = builder.Build();
 
             var client = new DocumentClient(
-                new Uri(Configuration["priceDbUrl"]),
-                Configuration["priceDbAuthKey"]);
+                new Uri(Configuration["PriceDbUrl"]),
+                Configuration["PriceDbAuthKey"]);
 
             AddDoc(client);
             GetDocument(client);

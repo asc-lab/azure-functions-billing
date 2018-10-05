@@ -2,6 +2,8 @@ using Microsoft.Azure.WebJobs;
 using Microsoft.Extensions.Logging;
 using Shared.Billing;
 using Shared.Invoicing;
+using Shared.Pricing;
+using System;
 using System.IO;
 
 namespace BillingFunctions
@@ -19,14 +21,20 @@ namespace BillingFunctions
 
             var activeList = ActiveListParser.Parse(name, myBlob);
             var generator = new BillingItemGenerator();
-            foreach (var bi in generator.Generate(activeList))
+            var priceList = GetPriceList(activeList.CustomerCode);
+            foreach (var bi in generator.Generate(activeList, priceList))
             {
                 billingItems.Add(bi);
             }
 
             queueRequest = InvoiceGenerationRequest.ForActiveList(activeList);
         }
-    }
 
-    
+        private static PriceList GetPriceList(string customerCode)
+        {
+            var url = Environment.GetEnvironmentVariable("PriceDbUrl");
+            var auth = Environment.GetEnvironmentVariable("PriceDbAuthKey");
+            return PriceRepository.Connect(url, auth).GetPriceList(customerCode);
+        }
+    }
 }

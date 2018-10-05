@@ -4,20 +4,16 @@ using System.Linq;
 
 namespace Shared.Pricing
 {
-    class PriceRepository
+    public class PriceRepository
     {
         private readonly DocumentClient client;
 
-        public PriceRepository(
-            string connStr = "https://localhost:8081/",
-            string authKey = "")
+        private PriceRepository(string connStr, string authKey)
         {
             client = new DocumentClient(new Uri(connStr), authKey);
         }
 
-        public static PriceRepository Connect(
-            string connStr = "https://localhost:8081/",
-            string authKey = "")
+        public static PriceRepository Connect(string connStr, string authKey)
         {
             return new PriceRepository(connStr, authKey);
         }

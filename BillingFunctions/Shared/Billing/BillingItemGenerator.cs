@@ -6,11 +6,10 @@ namespace Shared.Billing
 {
     public class BillingItemGenerator
     {
-        public List<BillingItem> Generate(ActiveList activeList)
+        public List<BillingItem> Generate(ActiveList activeList, PriceList priceList)
         {
             var billingDate = new DateTime(activeList.Year, activeList.Month, 1);
             var billingItems = new List<BillingItem>();
-            var priceList = PriceRepository.Connect().GetPriceList(activeList.CustomerCode);
 
             foreach (var line in activeList.DataLines)
             {

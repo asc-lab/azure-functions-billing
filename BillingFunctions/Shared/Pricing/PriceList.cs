@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Shared.Pricing
 {
-    class PriceList
+    public class PriceList
     {
         public string CustomerCode { get; set; }
         public IList<PriceListItem> Prices { get; set; }
@@ -17,7 +17,7 @@ namespace Shared.Pricing
                 .FirstOrDefault();
     }
 
-    class PriceListItem
+    public class PriceListItem
     {
         public string ProductCode { get; set; }
         public Gender Gender { get; set; }
