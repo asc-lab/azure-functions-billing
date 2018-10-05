@@ -18,7 +18,7 @@ This example shows how you can use the serverless architecture in insurance bill
 ## Prerequisites
 
 1. Install and run [Microsoft Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-2. Install [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator).
+2. Install and run [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator).
 3. Create blob Container ```active-lists```.
 4. Upload  ```ASC_2018_02_activeLists.txt``` file from ```data-examples``` folder to ```active-lists``` blob.
 5. Create CosmosDB database ```crm``` and collections: ```prices```,  ```invoices```.
@@ -85,5 +85,9 @@ Example JSON for INVOICE template:
 1. CSV file is working for client code ```ASC``` (filename: ```ASC_2018_12_activeList.txt```). If you want run functions for another client code, you must simulate prices in database. Check project ```PriceDbInitializator```, file ```Program.cs```, method ```AddDoc```.
 2. Remember that you must use **Twilio Test Credentials**! Screen:
 <p align="center">
-    <img alt="Architecture" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/twilio_test_credentials.png" />
+    <img alt="Twilio Test Credentials" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/twilio_test_credentials.png" />
+</p>
+3. **Microsoft Azure Storage Emulator** with all created storages:
+<p align="center">
+    <img alt="Microsoft Azure Storage Emulator" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/azure_storage_emulator.png" />
 </p>
