@@ -13,14 +13,11 @@ namespace PriceDbInitializator
         static void Main(string[] args)
         {
             string configFile = GetConfigFile(args);
-            var builder = new ConfigurationBuilder()
-                        .AddJsonFile(configFile);
+            var builder = new ConfigurationBuilder().AddJsonFile(configFile);
 
             Configuration = builder.Build();
 
-            var client = new DocumentClient(
-                new Uri(Configuration["PriceDbUrl"]),
-                Configuration["PriceDbAuthKey"]);
+            var client = new DocumentClient(new Uri(Configuration["PriceDbUrl"]), Configuration["PriceDbAuthKey"]);
 
             AddDoc(client);
             GetDocument(client);
@@ -30,8 +27,7 @@ namespace PriceDbInitializator
 
         static void GetDocument(DocumentClient client)
         {
-            var priceList = client.CreateDocumentQuery<PriceList>(
-                UriFactory.CreateDocumentCollectionUri("crm", "prices"))
+            var priceList = client.CreateDocumentQuery<PriceList>(GetDocumentCollectionURI())
                 .Where(p => p.CustomerCode == "ASC");
 
             foreach (var pl in priceList)
@@ -120,14 +116,17 @@ namespace PriceDbInitializator
                 }
             };
 
-            client.CreateDocumentAsync(
-                UriFactory.CreateDocumentCollectionUri("crm", "prices"),
-                price);
+            client.CreateDocumentAsync(GetDocumentCollectionURI(), price);
         }
 
         private static string GetConfigFile(string[] args)
         {
             return args.Length > 0 && args[0] != null ? args[0] : "local.appsettings.json";
+        }
+
+        private static Uri GetDocumentCollectionURI()
+        {
+            return UriFactory.CreateDocumentCollectionUri(Configuration["PriceDbName"], Configuration["PriceDbCollection"]);
         }
     }
 
