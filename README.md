@@ -7,28 +7,43 @@ This example shows how you can use the serverless architecture in insurance bill
 </p>
 
 1. User uploads CSV file (with name structure ```CLIENTCODE_YEAR_MONTH_activeList.txt.```) with Beneficiaries (the sample file is located in the ```data-examples``` folder) to a specific data storage - ```active-lists``` Azure Blob Container.
+
 2. The above action triggers a function (```GenerateBillingItemsFunc```) that is responsible for:
     * generating billing items (using prices from an external database - CosmosDB ```crm``` database, ```prices``` collection) and saving them in the table ```billingItems```;
     * sending message about the need to create a new invoice to ```invoice-generation-request```;
 
 3. When a new message appears on the queue ```invoice-generation-request```, next function is triggered (```GenerateInvoiceFunc```). This function creates domain object ```Invoice``` and save this object in database (CosmosDB ```crm``` database, ```invoices``` collection) and send message to queues: ```invoice-print-request``` and ```invoice-notification-request```.
+
 4. When a new message appears on the queue ```invoice-print-request```, function ```PrintInvoiceFunc``` is triggered. This function uses external engine to PDF generation - JsReport and saves PDF file in BLOB storage.
+
 5. When a new message appears on the queue ```invoice-notification-request```, function ```NotifyInvoiceFunc``` is triggered. This function uses two external systems - SendGrid to Email sending and Twilio to SMS sending.
 
-## Prerequisites
+## Tutorial from scratch to run locally
 
 1. Install and run [Microsoft Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator).
-2. Install and run [CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator).
-3. Create blob Container ```active-lists```.
+
+2. Install and run [CosmosDB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator). Check this on ```https://localhost:8081/_explorer/index.html```.
+
+3. Create in Emulator blob Container ```active-lists```.
+
 4. Upload  ```ASC_2018_02_activeLists.txt``` file from ```data-examples``` folder to ```active-lists``` blob.
-5. Create CosmosDB database ```crm``` and collections: ```prices```,  ```invoices```.
-6. Run project ```PriceDbInitializator``` to init collection with prices.
-7. Run JsReport ```docker run -p 5488:5488 jsreport/jsreport```. Check JsReport Studio on ```localhost:5488```.
-8. Add JsReport url as ```JsReportUrl``` to ```local.settings.json``` in ```PrintInvoiceFunc``` project.
-9. Create an account in [Twilio](https://www.twilio.com/) and add properties ```TwilioAccountSid``` ```TwilioAuthToken``` to ```local.settings.json```
-10. Create an account in [SendGrid](https://sendgrid.com/) and add property ```SendGridApiKey``` to ```local.settings.json``` in ```NotifyInvoiceFunc``` project.
-11. Add CosmosDB properties ```PriceDbUrl``` and ```PriceDbAuthKey``` to ```local.appsettings.json``` in ```PriceDbInitializator```.
-12. Add CosmosDB connection string as ```cosmosDb``` to ```local.settings.json``` in ```GenerateInvoiceFunc``` project.
+
+5. Create CosmosDB database ```crm``` and in this database create collections: ```prices```,  ```invoices```.
+
+6. Add CosmosDB properties ```PriceDbUrl``` and ```PriceDbAuthKey``` to ```local.appsettings.json``` in ```PriceDbInitializator``` and ```GenerateBillingIemsFunc```. You can copy this properties from ```Azure CosmosDB Emulator``` - check point 2 (URI and Primary Key).
+
+7. Run project ```PriceDbInitializator``` to init collection ```prices``` in ```crm``` database.
+
+8. Add CosmosDB connection string as ```cosmosDb``` to ```local.settings.json``` in ```GenerateInvoiceFunc```. You can copy this string from ```Azure CosmosDB Emulator``` - check point 2 (Primary Connection String).
+
+9. Create an account in [SendGrid](https://sendgrid.com/) and add property ```SendGridApiKey``` to ```local.settings.json``` in ```NotifyInvoiceFunc```.
+
+10. Create an account in [Twilio](https://www.twilio.com/) and add properties ```TwilioAccountSid``` ```TwilioAuthToken``` to ```local.settings.json``` in ```NotifyInvoiceFunc```.
+
+11. Run JsReport with Docker: ```docker run -p 5488:5488 jsreport/jsreport```. Check JsReport Studio on ```localhost:5488```.
+
+12. Add JsReport url as ```JsReportUrl``` to ```local.settings.json``` in ```PrintInvoiceFunc``` project.
+
 13. Add JsReport template with name ```INVOICE``` and content:
 
 ```html
