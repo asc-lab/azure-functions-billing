@@ -98,6 +98,29 @@ Example JSON for INVOICE template:
 }
 ```
 
+## Monitoring examples
+
+Application Map for all function in one project:
+
+<p align="center">
+    <img alt="Application Map 1" 
+    src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/application_map_one_project.png" />
+</p>
+
+Application Map for functions in separated projects:
+
+<p align="center">
+    <img alt="Application Map 2"
+    src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/application_map_separated_projects.png" />
+</p>
+
+End-to-end transaction details:
+
+<p align="center">
+    <img alt="End to End Transaction Details"
+    src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/performance.png" />
+</p>
+
 ## Tips & Tricks
 
 1. CSV file is working for client code ```ASC``` (filename: ```ASC_2018_12_activeList.txt```). If you want run functions for another client code, you must simulate prices in database. Check project ```PriceDbInitializator```, file ```Program.cs```, method ```AddDoc```.
