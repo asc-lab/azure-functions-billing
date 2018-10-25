@@ -1,6 +1,6 @@
-# Azure Functions v2 with .NET Core - Serverless in Insurance world
+# Azure Functions v2 with .NET Core
 
-This example shows how you can use the serverless architecture in insurance billing system.
+This example shows simplified billing system in serverless architecture.
 
 <p align="center">
     <img alt="Architecture" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/azure-functions-architecture.png" />
