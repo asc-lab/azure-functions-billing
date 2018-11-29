@@ -98,6 +98,20 @@ Example JSON for INVOICE template:
 }
 ```
 
+All properties in one `local.appsettings.json`:
+
+```
+{
+  "PriceDbUrl": "",
+  "PriceDbAuthKey": "",
+  "cosmosDb": "",
+  "SendGridApiKey": "",
+  "TwilioAccountSid ": "",
+  "TwilioAuthToken": "",
+  "JsReportUrl": ""
+}
+```
+
 ## Monitoring examples
 
 Application Map for all function in one project:
