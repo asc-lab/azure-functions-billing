@@ -98,6 +98,25 @@ Example JSON for INVOICE template:
 }
 ```
 
+All properties in one `local.appsettings.json`:
+
+```
+{
+  "IsEncrypted": false,
+  "Values": {
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "PriceDbUrl": "https://localhost:8081",
+    "PriceDbAuthKey": "AUTH_KEY",
+    "cosmosDb": "AccountEndpoint=https://localhost:8081/;AccountKey=AUTH_KEY",
+    "JsReportUrl": "http://localhost:5488",
+    "SendGridApiKey": "SEND_GRID_API_KEY",
+    "TwilioAccountSid ": "TWILIO_ACCOUNT_SID",
+    "TwilioAuthToken": "TWILIO_AUTH_TOKEN"
+  }
+}
+```
+
 ## Monitoring examples
 
 Application Map for all function in one project:
