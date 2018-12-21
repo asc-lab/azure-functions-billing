@@ -2,6 +2,10 @@
 
 This example shows simplified billing system in serverless architecture.
 
+Comprehensive guide describing exactly the architecture, applied design patterns and technologies can be found on our blog in article **[Azure Functions 2.0 – real world use case for serverless architecture](https://altkomsoftware.pl/en/blog/azure-functions/)**.
+
+**We encourage you to read, because in this README there is only a substitute for all information.**
+
 <p align="center">
     <img alt="Architecture" src="https://raw.githubusercontent.com/asc-lab/dotnetcore-azure-functions/master/readme-images/azure-functions-architecture.png" />
 </p>
